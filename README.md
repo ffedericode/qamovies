@@ -48,4 +48,4 @@ Si consiglia quindi, come prima possibile soluzione per gli errori, quella di ri
 - Dict ( https://wordnet.princeton.edu/wordnet/download/current-version/ )
 
 ## Documentazione
-https://github.com/ffedericode/qamovie/ia2_ppt3.pdf
+https://github.com/ffedericode/qamovies/blob/master/ia2_ppt3.pdf
