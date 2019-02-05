@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="750.0" minWidth="1000.0" prefHeight="900.0" prefWidth="1300.0" stylesheets="@personalStyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs.art.ia.userInterfaceEngine.GuiController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <VBox prefHeight="8.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ProgressBar fx:id="loadingBar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" progress="0.0" />
+               </children>
+            </VBox>
+         </bottom>
+         <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="content" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="QA">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <SplitPane dividerPositions="0.55" prefHeight="378.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <TableView fx:id="table" editable="true" onMouseClicked="#getTextFromTable" prefHeight="398.0" prefWidth="227.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn fx:id="col" prefWidth="283.0" text="Recent Question" />
+                                                <TableColumn fx:id="col1" prefWidth="127.0" text="Recent Result" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="490.0">
+                                       <children>
+                                          <VBox prefHeight="383.0" prefWidth="461.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                             <children>
+                                                <TextField fx:id="askField" onKeyPressed="#changedTextField" prefHeight="30.0" prefWidth="400.0" promptText="Ask a question" styleClass="text-field" />
+                                                <TextArea fx:id="resultArea" editable="false" prefHeight="564.0" prefWidth="539.0" promptText="Output Response" />
+                                                <Button id="q" fx:id="askButton" alignment="CENTER" mnemonicParsing="false" onAction="#question" text="Ask" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="setting" text="Settings">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" spacing="5.0">
+                                             <children>
+                                                <TitledPane alignment="TOP_LEFT" text="Result">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="content-area">
+                                                         <children>
+                                                            <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <HBox styleClass="check-box">
+                                                                     <children>
+                                                                        <CheckBox fx:id="showAdvanceResult" mnemonicParsing="false" selected="true" text="Show Advance Result (Permette di visualizzare informazioni aggiuntive durante la query)" />
+                                                                     </children>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </HBox>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <CheckBox fx:id="showTree" mnemonicParsing="false" text="Show Tree Rappresentation (Permette di visualizzare l'albero generato dal parser)" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <CheckBox fx:id="showTreeDebug" mnemonicParsing="false" text="Show Tree RDF (Opzione utilizzata a scopo di debug del tree, visualizza i 3 sotto alberi estratti)" />
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                               </padding>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets right="30.0" />
+                                                   </padding>
+                                                </TitledPane>
+                                                <TitledPane text="Parsing Method">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="content-area">
+                                                         <children>
+                                                            <VBox layoutX="24.0" layoutY="24.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <RadioButton fx:id="templateFlag" mnemonicParsing="false" onAction="#determinateParser" selected="true" text="Template Parser">
+                                                                     <toggleGroup>
+                                                                        <ToggleGroup fx:id="parser" />
+                                                                     </toggleGroup>
+                                                                  </RadioButton>
+                                                                  <RadioButton fx:id="parserFlag" mnemonicParsing="false" onAction="#determinateParser" selected="true" text="Parser (OpenNLP Parser)" toggleGroup="$parser" />
+                                                                  <CheckBox fx:id="synonymerFlag" mnemonicParsing="false" onAction="#determinateSynonimer" text="Use Synonymer" />
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                               </padding>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                   <padding>
+                                                      <Insets right="30.0" />
+                                                   </padding>
+                                                </TitledPane>
+                                                <TitledPane styleClass="title-label" text="Ontology">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" snapToPixel="false">
+                                                         <children>
+                                                            <VBox spacing="20.0">
+                                                               <children>
+                                                                  <HBox styleClass="content-area">
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" text="Ontology Reference">
+                                                                           <HBox.margin>
+                                                                              <Insets right="20.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <TextField fx:id="ontologyReference" prefHeight="30.0" promptText="Insert Ontology Reference" styleClass="text-input" text="Film" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" text="Filter Property ">
+                                                                           <HBox.margin>
+                                                                              <Insets right="55.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <TextField fx:id="property" promptText="Insert Filter Property" text="abstract" />
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                               </padding>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                   <padding>
+                                                      <Insets right="30.0" />
+                                                   </padding>
+                                                </TitledPane>
+                                                <TitledPane text="Engine">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                         <children>
+                                                            <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <Label text="Pipeline:" />
+                                                                  <HBox spacing="20.0">
+                                                                     <children>
+                                                                        <RadioButton fx:id="simpleEngine" mnemonicParsing="false" onAction="#changePipeline" selected="true" text="Simple">
+                                                                           <toggleGroup>
+                                                                              <ToggleGroup fx:id="engine" />
+                                                                           </toggleGroup>
+                                                                        </RadioButton>
+                                                                        <Label text="( OpenNlpParser + OpenNlpPosTagger + OpenNlpSegmenter ) " />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox spacing="20.0">
+                                                                     <children>
+                                                                        <RadioButton fx:id="stemmerEngine" mnemonicParsing="false" onAction="#changePipeline" text="Stemmer" toggleGroup="$engine" />
+                                                                        <Label text="( OpenNlpParser + OpenNlpPosTagger + OpenNlpSegmenter + SnowballStemmer ) " />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox spacing="20.0">
+                                                                     <children>
+                                                                        <RadioButton fx:id="lemmatizerEngine" mnemonicParsing="false" onAction="#changePipeline" text="Lemmatizer" toggleGroup="$engine" />
+                                                                        <Label text="( OpenNlpParser + OpenNlpPosTagger + OpenNlpSegmenter + GateLemmatizer )" />
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                               </padding>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets right="30.0" />
+                                                   </padding>
+                                                </TitledPane>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="190.0" fitWidth="214.0" pickOnBounds="true" preserveRatio="true">
+
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                   <image>
+                                                      <Image url="@uniroma2-medschool-1.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                   <image>
+                                                      <Image url="@ArtLogo.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="BOTTOM_RIGHT" styleClass="superlabel" text="QA (progetto di IA2)">
+                                                   <font>
+                                                      <Font name="Verdana" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="BOTTOM_RIGHT" styleClass="superlabel" text="Federico Ferrantelli" textAlignment="RIGHT" />
+                                                <Label alignment="BOTTOM_RIGHT" styleClass="superlabel" text="Christian Simolo" textAlignment="RIGHT" />
+                                                <Label alignment="BOTTOM_RIGHT" styleClass="superlabel" text="Lorenzo Terribili" textAlignment="RIGHT" />
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets left="-8.0" />
+                                             </HBox.margin></VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="BOTTOM_CENTER" disable="true" snapToPixel="false" spacing="20.0" visible="false">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="Apply" />
+                                          <Button mnemonicParsing="false" text="Reset" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

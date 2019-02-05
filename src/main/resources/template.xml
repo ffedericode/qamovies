@@ -1,0 +1,7 @@
+<!--Pattern per il match delle querySPARQL-->
+<template>
+    <pattern>(what|who) is the #P of #O\?</pattern>
+    <pattern>(what|who) is #P of #O\?</pattern>
+    <pattern>(what|who) is #O's #P\?</pattern>
+    <pattern>(are|is) #S the #P of #O\?</pattern>
+</template>
